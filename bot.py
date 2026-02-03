@@ -1,3 +1,5 @@
+cd ~/instagram-bot
+cat > bot.py << 'EOF'
 #!/usr/bin/env python3
 """
 Instagram Auto Welcome Bot
@@ -10,10 +12,15 @@ import time
 import os
 import logging
 
+# التعديل هنا: السطر 15 وما بعده
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler()
+    ]
 )
+
 logger = logging.getLogger(__name__)
 
 WELCOME_TEMPLATE = "@{username} انزع اريد اشوف اغراضك يا ورد🙈🎀"
@@ -116,3 +123,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+EOF
